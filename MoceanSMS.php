@@ -15,8 +15,8 @@
 class MoceanSMS {
 
     // Account credentials
-    private $account_username = '';
-    private $account_password = '';
+    private $api_key = '';
+    private $api_secret = '';
     
     // REST API URL
     public $rest_base_url = 'https://rest-api.moceansms.com/rest/1';
@@ -32,10 +32,10 @@ class MoceanSMS {
     
     public $message_type_option = array('7-bit' => 1, '8-bit' => 2, 'Unicode' => 3);
 
-    public function __construct($account_username = null, $account_password = null) 
+    public function __construct($api_key = null, $api_secret = null) 
     {
-        $this->account_username = $account_username;
-        $this->account_password = $account_password;        
+        $this->api_key = $api_key;
+        $this->api_secret = $api_secret;        
     }
 
     function sendSMS($from, $to, $message, $message_type = null, $dlr_url = null, $udh = null) 
@@ -130,7 +130,7 @@ class MoceanSMS {
         $method = $command_info['method'];
 
         // Build the post data
-        $params = array_merge($params, array('mocean-username' => $this->account_username, 'mocean-password' => $this->account_password, 'mocean-resp-format' => $this->response_format));
+        $params = array_merge($params, array('mocean-api-key' => $this->api_key, 'mocean-api-secret' => $this->api_secret, 'mocean-resp-format' => $this->response_format));
       
         $rest_request = curl_init();
         if($method == 'POST') {
