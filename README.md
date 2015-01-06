@@ -1,8 +1,8 @@
-PHP sample code for integration with MoceanSMS gateway.
+PHP sample code for integration with MoceanSMS API Server.
 
 With MoceanSMS REST API you can send and receive SMS message, query account balance and pricing info.
 
-Read more over at <a href="https://dev.moceansms.com/restapi">dev.moceansms.com/restapi</a>
+Read more over at dev.moceansms.com/restapi
 
 Examples
 --------------
@@ -10,12 +10,12 @@ Examples
 1) Send SMS
 
     include ("MoceanSMS.php");
-    $moceansms_rest = new MoceanSMS('account_username', 'account_password');
-    $rest_response = $moceansms_rest->sendSMS('Mocean', '60173788399', 'Hello!');
+    $moceansms_rest = new MoceanSMS('api_key', 'api_secret');
+    $rest_response = $moceansms_rest->sendSMS('Mocean', '60173788399', 'Hello');
     echo $rest_response;
 
 
-2) Receive SMS 
+2) Receive DLR 
 
     include ( "MoceanSMS.php" );
     $moceansms_rest = new MoceanSMS();
@@ -28,6 +28,6 @@ Examples
 3) Query account balance
 
     include ("MoceanSMS.php");
-    $moceansms_rest = new MoceanSMS('account_username', 'account_password');
+    $moceansms_rest = new MoceanSMS('api_key', 'api_secret');
     $rest_response = $moceansms_rest->accountBalance();
 
