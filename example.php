@@ -1,16 +1,17 @@
 <?php
-    
+
     // 1. Send SMS 
 
     // Step 1: Include MoceanSMS library file
     include ("MoceanSMS.php");
 
-    // Step 2: Declare new MoceanSMS.
-    $moceansms_rest = new MoceanSMS('account_username', 'account_password');
+    // Step 2: Declare new MoceanSMS and specify API key and secret
+    $moceansms_rest = new MoceanSMS('api_key', 'api_secret');
 
-    // Step 3: Use sendSMS($from, $to, $message) method to send a message. 
-    $rest_response = $moceansms_rest->sendSMS('Mocean', '60173788399', 'Hello!');
+    // Step 3: Use sendSMS($from, $to, $message) method to send a message
+    $rest_response = $moceansms_rest->sendSMS('Mocean', '60173788399', 'Hello');
 
+    // Response will be returned in JSON format 
     echo $rest_response;
         
     
@@ -43,21 +44,21 @@
     
     // 4. Query account balance
     include ("MoceanSMS.php"); 
-    $moceansms_rest = new MoceanSMS('account_username', 'account_password'); 
+    $moceansms_rest = new MoceanSMS('api_key', 'api_secret'); 
     $rest_response = $moceansms_rest->accountBalance();     
     echo $rest_response;
     
     
     // 5. Query account pricing
     include ("MoceanSMS.php"); 
-    $moceansms_rest = new MoceanSMS('account_username', 'account_password'); 
+    $moceansms_rest = new MoceanSMS('api_key', 'api_secret'); 
     $rest_response = $moceansms_rest->accountPricing(); 
     echo $rest_response;
     
     
     // 6. Query message status
     include ("MoceanSMS.php"); 
-    $moceansms_rest = new MoceanSMS('account_username', 'account_password'); 
+    $moceansms_rest = new MoceanSMS('api_key', 'api_secret'); 
     $rest_response = $moceansms_rest->messageStatus('cust20013050311050614001'); 
     echo $rest_response;
     
